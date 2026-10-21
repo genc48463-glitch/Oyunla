@@ -11,9 +11,9 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
-      - uses: android-actions/setup-android@v3
       - name: APK derle
         run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
           unzip -o "$(ls *.zip | head -1)"
           cd SonBarikat
           chmod +x gradlew
